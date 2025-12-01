@@ -26,7 +26,11 @@ os.makedirs(TMP_FOLDER, exist_ok=True)
 #     nome = re.sub(r"\s+", "_", nome)        
 #     return nome.strip("_")
 
-def normaliza_nome(nome):
+
+def normaliza_nome(name):
+    if name.lower().endswith(".mp3"):
+        name = name[:-4]
+
     name = name.replace(" ", "_")
 
     forbidden = r'[\\\/\:\*\?\"\<\>\|]'
@@ -44,6 +48,7 @@ def normaliza_nome(nome):
         return "untitled"
 
     return name
+
 
 def baixar_e_verificar(short, musica_path):
     video_id = short["video_id"]
