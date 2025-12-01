@@ -1,0 +1,20 @@
+{
+    "next_page_token": null,
+    "shorts": [
+        {
+            "video_id": "fM1X9CSp-OU",
+            "channel_name": "UCjQxDIZMz7uqQ7sjSg-e35Q",
+            "publish_date": "2022-06-20T03:17:51Z"
+        },
+        {
+            "video_id": "ByotGaU41HM",
+            "channel_name": "UCktvKuqeojwBG7ljEBQuH3A",
+            "publish_date": "2023-12-18T17:44:54Z"
+        },
+        {
+            "video_id": "k2tjJkP9Vr4",
+            "channel_name": "UC6xiLCVKr5S7ruKTMBfFlpQ",
+            "publish_date": "2023-12-17T09:00:27Z"
+        }
+    ]
+}

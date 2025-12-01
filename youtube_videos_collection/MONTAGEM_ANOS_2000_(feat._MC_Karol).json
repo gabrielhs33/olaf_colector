@@ -1,0 +1,25 @@
+{
+    "next_page_token": null,
+    "shorts": [
+        {
+            "video_id": "dYRDgAkBstU",
+            "channel_name": "UCzfoslWTvSrG5bRFRVM4cAg",
+            "publish_date": "2023-09-10T13:43:23Z"
+        },
+        {
+            "video_id": "SEAWiMMsLAA",
+            "channel_name": "UCNhvwNogI0iU2geZJ_oiLkw",
+            "publish_date": "2021-10-26T00:43:04Z"
+        },
+        {
+            "video_id": "RPcdyE6kLtc",
+            "channel_name": "UCmGwcA4GW5zdc5Oreh8-54w",
+            "publish_date": "2023-10-29T13:56:48Z"
+        },
+        {
+            "video_id": "7BVY-GJfLMY",
+            "channel_name": "UCY9bPyME722n7KF5FCh8Pfw",
+            "publish_date": "2023-08-24T02:39:56Z"
+        }
+    ]
+}

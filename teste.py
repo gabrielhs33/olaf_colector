@@ -6,6 +6,6 @@ outro = "teste audios/speed.mp3"
 print("referencia")
 Olaf(OlafCommand.STORE, ref).do()
 
-print("olhando outro")
+print("comparacao")
 achou = Olaf(OlafCommand.QUERY, outro).do()
 print(achou)

@@ -17,14 +17,33 @@ MAX_WORKERS = 8
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 os.makedirs(TMP_FOLDER, exist_ok=True)
 
+# def normaliza_nome(nome):
+#     nome = os.path.splitext(nome)[0]
+#     nome = unicodedata.normalize('NFD', nome).encode('ascii','ignore').decode()
+#     nome = re.sub(r"[().]", " ", nome)      
+#     nome = nome.replace("&", "_")          
+#     nome = re.sub(r"[^A-Za-z0-9\s_]", "", nome)  
+#     nome = re.sub(r"\s+", "_", nome)        
+#     return nome.strip("_")
+
 def normaliza_nome(nome):
-    nome = os.path.splitext(nome)[0]
-    nome = unicodedata.normalize('NFD', nome).encode('ascii','ignore').decode()
-    nome = re.sub(r"[().]", " ", nome)      
-    nome = nome.replace("&", "_")          
-    nome = re.sub(r"[^A-Za-z0-9\s_]", "", nome)  
-    nome = re.sub(r"\s+", "_", nome)        
-    return nome.strip("_")
+    name = name.replace(" ", "_")
+
+    forbidden = r'[\\\/\:\*\?\"\<\>\|]'
+    name = re.sub(forbidden, '', name)
+
+    name = ''.join(ch for ch in name if unicodedata.category(ch)[0] != "C")
+
+    if not name.strip("_"):
+        return "untitled"
+
+    if name.endswith("."):
+        name = name[:-1]
+
+    if not name:
+        return "untitled"
+
+    return name
 
 def baixar_e_verificar(short, musica_path):
     video_id = short["video_id"]
