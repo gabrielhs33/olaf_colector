@@ -57,6 +57,7 @@ def baixar_e_verificar(short, musica_path):
         'format': 'bestaudio/best',
         'outtmpl': output_path,
         'quiet': True,
+        'cookiefile': 'cookies.txt',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
@@ -135,3 +136,4 @@ for musica in os.listdir(MUSICS_FOLDER):
     checkpoint.append(musica)
     with open(CHECKPOINT_FILE, "w", encoding="utf-8") as f:
         json.dump(checkpoint, f, indent=4, ensure_ascii=False)
+
