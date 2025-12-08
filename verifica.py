@@ -6,7 +6,7 @@ from yt_dlp import YoutubeDL
 from Olaf import Olaf, OlafCommand
 import re, unicodedata
 
-MUSICS_FOLDER = "musics"
+MUSICS_FOLDER = "../musics"
 JSON_FOLDER = "youtube_videos_collection"
 OUTPUT_FOLDER = "new_youtube_collection"
 CSV_FILE = "resultados.csv"
