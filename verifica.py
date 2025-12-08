@@ -51,6 +51,7 @@ def normaliza_nome(name):
 
 
 def baixar_e_verificar(short, musica_path):
+    import time, random
     video_id = short["video_id"]
     output_path = os.path.join(TMP_FOLDER, f"{video_id}.%(ext)s")
     ydl_opts = {
@@ -64,6 +65,7 @@ def baixar_e_verificar(short, musica_path):
             'preferredquality': '128',
         }]
     }
+    time.sleep(random.uniform(10, 90))
     try:
         with YoutubeDL(ydl_opts) as ydl:
             ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
@@ -136,4 +138,5 @@ for musica in os.listdir(MUSICS_FOLDER):
     checkpoint.append(musica)
     with open(CHECKPOINT_FILE, "w", encoding="utf-8") as f:
         json.dump(checkpoint, f, indent=4, ensure_ascii=False)
+
 
