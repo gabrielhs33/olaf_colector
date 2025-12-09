@@ -26,6 +26,9 @@ os.makedirs(TMP_FOLDER, exist_ok=True)
 #     nome = re.sub(r"\s+", "_", nome)        
 #     return nome.strip("_")
 
+AUTO_COOKIE_PATH = os.path.expanduser(
+    "~/.config/google-chrome/Default/Network/Cookies"
+)
 
 def normaliza_nome(name):
     if name.lower().endswith(".mp3"):
@@ -52,13 +55,18 @@ def normaliza_nome(name):
 
 def baixar_e_verificar(short, musica_path):
     import time, random
+    
+    if not os.path.exists(AUTO_COOKIE_PATH):
+    print(f"Cookie não encontrado em: {AUTO_COOKIE_PATH}")
+    raise SystemExit(1)
+    
     video_id = short["video_id"]
     output_path = os.path.join(TMP_FOLDER, f"{video_id}.%(ext)s")
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': output_path,
         'quiet': True,
-        'cookiefile': 'cookies.txt',
+        'cookiefile': AUTO_COOKIE_PATH,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
@@ -74,6 +82,14 @@ def baixar_e_verificar(short, musica_path):
         os.remove(audio_path)  
         return achou, short
     except Exception as e:
+          if (
+            "cookies" in erro.lower() or
+            "login" in erro.lower() or
+            "403" in erro or
+            "401" in erro or
+            "account" in erro.lower()
+            ):
+            raise SystemExit(1)
         return False, short
 
 # Inicializa CSV se não existir
@@ -138,5 +154,6 @@ for musica in os.listdir(MUSICS_FOLDER):
     checkpoint.append(musica)
     with open(CHECKPOINT_FILE, "w", encoding="utf-8") as f:
         json.dump(checkpoint, f, indent=4, ensure_ascii=False)
+
 
 
