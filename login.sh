@@ -21,4 +21,4 @@ mkdir -p /tmp/chrome_persona
 echo ""
 echo "✅ Pronto"
 echo "   source ~/.bashrc"
-echo "   python3 olaf_colector.py"
+echo "   python3 verifica.py"
